@@ -40,7 +40,7 @@ def main():
         p = Popen(['pipenv', 'run', 'python', 'setup.py', 'sdist', 'bdist_wheel'])
         p.communicate()
 
-        p = Popen(['pipenv', 'run', 'python', '-m', 'twine', 'upload', '--skip-existing', '--repository', 'testpypi', 'dist/*'])
+        p = Popen(['pipenv', 'run', 'python', '-m', 'twine', 'upload', '--skip-existing', '--repository', 'pypi', 'dist/*'])
         p.communicate()
     else:
         print("Test Failed")
