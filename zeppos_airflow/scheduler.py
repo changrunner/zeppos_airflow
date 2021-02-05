@@ -15,6 +15,11 @@ class Scheduler:
             return yesterday.subtract(days=1, hours=yesterday.hour, minutes=yesterday.minute, seconds=yesterday.second,
                                       microseconds=yesterday.microsecond)
 
+        @staticmethod
+        def one_hour_ago():
+            now_utc = pendulum.now("utc")
+            return now_utc.subtract(hours=1, minutes=now_utc.minute, seconds=now_utc.second,
+                                    microseconds=now_utc.microsecond)
 
     class RetryDelay:
         @staticmethod

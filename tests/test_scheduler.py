@@ -25,6 +25,11 @@ class TestTheProjectMethods(unittest.TestCase):
         self.assertEqual(0, Scheduler.StartDate.yesterday_usa_central_timezone().second)
         self.assertEqual(0, Scheduler.StartDate.yesterday_usa_central_timezone().microsecond)
 
+    def test_startdate_one_hour_ago_method(self):
+        self.assertEqual((datetime.utcnow() - timedelta(hours=1)).strftime('%Y-%m-%dT%H:00:00+00:00'),
+                         str(Scheduler.StartDate.one_hour_ago())
+                         )
+
     def test_retry_delay_five_minutes_method(self):
         self.assertEqual('0:05:00', str(Scheduler.RetryDelay.five_minutes()))
 
