@@ -14,6 +14,8 @@ class TestTheProjectMethods(unittest.TestCase):
         self.assertEqual(0, Scheduler.StartDate.yesterday().microsecond)
 
     def test_startdate_yesterday_usa_central_timezone_method(self):
+        # This test works if you are on US Central time zone.
+        # TODO: Make timezone sensative.
         now = datetime.now() - timedelta(days=1)
         self.assertEqual(now.year, Scheduler.StartDate.yesterday_usa_central_timezone().year)
         self.assertEqual(now.month , Scheduler.StartDate.yesterday_usa_central_timezone().month)
